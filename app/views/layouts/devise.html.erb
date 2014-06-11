@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Things</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav>
+    <% if current_user %>
+      <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+    <% end %>
+  </nav>
+  <div id='login-wrapper'>
+    <div id='login-container'>
+      <h1>THINGS</h1>
+      <%= yield %>
+  </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<div id='thing-<%= thing.id %>'>
+  <p><%= thing.description %></p>
+  <%= link_to finish_thing_path(thing), method: :post, remote: true do %>
+    <span class='icon-check'></span>
+  <% end %>
+  <%= link_to thing_path(thing), method: :delete, remote: true do %>
+    <span class='icon-close'></span>
+  <% end %>
+</div>
