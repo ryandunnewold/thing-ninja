@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20140611010113) do
 
   create_table "things", force: true do |t|
     t.integer  "user_id"
-    t.datetime "finished"
+    t.boolean  "finished",    default: false
     t.datetime "finished_at"
     t.integer  "priority"
     t.string   "description"

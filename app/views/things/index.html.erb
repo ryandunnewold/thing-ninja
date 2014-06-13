@@ -1,7 +1,5 @@
-<% @things.each do |thing| %>
-  <%= render 'thing', thing: thing %>
-<% end %>
-<%= simple_form_for Thing.new, remote: true do |f| %>
-  <%= f.input :description %>
-  <%= f.submit 'Add' %>
-<% end %>
+<div id='thing-wrapper'><% @things.each do |thing| %>
+	<%= render 'thing', thing: thing %>
+  <% end %>
+</div>
+<div id='new-thing' contenteditable="true"></div>

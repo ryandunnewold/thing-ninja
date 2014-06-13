@@ -4,7 +4,7 @@ class ThingsController < ApplicationController
   before_action :set_thing, only: %i(update destroy finish unfinish)
 
   def index
-    @things = current_user.things
+    @things = current_user.things.unfinished
   end
 
   def create
@@ -12,6 +12,7 @@ class ThingsController < ApplicationController
   end
 
   def update
+    @thing.update(thing_params)
   end
 
   def destroy

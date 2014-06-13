@@ -8,6 +8,9 @@ $primary-color: rgb(52, 152, 219);
 $secondary-color: rgb(231, 76, 60);
 $other-color: rgb(149, 165, 166);
 
+$success-color: rgb(46, 204, 113);
+$failure-color: rgb(231, 76, 60);
+
 // Mixins
 
 @mixin flex-center {
@@ -50,6 +53,7 @@ $other-color: rgb(149, 165, 166);
   flex-flow: $flow;
 }
 
+// Styles
 
 html, body {
   width: 100%;
@@ -58,16 +62,20 @@ html, body {
   padding: 0;
   font-family: $primary-font;
   color: #222;
+  font-weight: 300;
+  font-size: 24px;
 }
 
 a, a:focus, a:visited, a:link, a:hover {
   color: #222;
   text-decoration: none;
+  outline: none;
 }
 
 nav {
   width: 100%;
   height: $nav-height;
+  position: fixed;
   #logout-link {
     width: 50px;
     height: 50px;
@@ -78,9 +86,107 @@ nav {
   }
 }
 
+// http://daneden.github.io/animate.css
+
+@-webkit-keyframes bounceOutLeft {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  10% {
+    opacity: .2;
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+  }
+}
+
+@-webkit-keyframes bounceOutRight {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  10% {
+    opacity: .5;
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+  }
+}
+
 #wrapper {
   width: 100%;
-  height: calc(100% - #{$nav-height});
+  min-height: calc(100% - #{$nav-height});
+  #container {
+    width: 800px;
+    margin: 0 auto;
+    padding: $nav-height 0 100px 0;
+    position: relative;
+    #thing-wrapper {
+      .thing {
+        @include flex;
+        @include flex-justify(space-between);
+        @include flex-align-items(center);
+        padding: 10px 0;
+        .thing-description {
+          width: 700px;
+          outline: none;
+        }
+        .finish-thing-link, .delete-thing-link {
+          @include flex-center;
+          transition: color 100ms ease-in-out;
+        }
+        .finish-thing-link {
+          &:hover {
+            color: $success-color;
+          }
+        }
+        .delete-thing-link {
+          &:hover {
+            color: $failure-color;
+          }
+        }
+        &.finished {
+          -webkit-animation: bounceOutLeft 600ms;
+          animation: bounceOutLeft 600ms;
+        }
+        &.deleted {
+          -webkit-animation: bounceOutRight 600ms;
+          animation: bounceOutRight 600ms;
+        }
+      }
+    }
+    #new-thing {
+      padding: 10px 0;
+      margin: 0 50px;
+      outline: none;
+      &:empty {
+        &:before {
+          color: #999;
+          content: 'Add a thing'
+        }
+        &:focus {
+          &:before {
+            content: ''   
+          }
+        }
+      }
+    }
+  }
 }
 
 #login-wrapper {
@@ -98,11 +204,11 @@ nav {
     input[type='email'], input[type='text'], input[type='password'] {
       box-sizing: border-box;
       width: 100%;
-      padding: 8px 14px;
+      padding: 12px 14px;
       background: #fff;
       outline: none;
       border: 1px solid #999;
-      font-size: 16px;
+      font-size: 18px;
       font-family: $primary-font;
       font-weight: 300;
       &:-webkit-autofill {

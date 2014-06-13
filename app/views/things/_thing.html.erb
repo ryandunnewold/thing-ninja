@@ -1,9 +1,9 @@
-<div id='thing-<%= thing.id %>'>
-  <p><%= thing.description %></p>
-  <%= link_to finish_thing_path(thing), method: :post, remote: true do %>
+<div id='thing-<%= thing.id %>' class='thing'>
+  <%= link_to finish_thing_path(thing), method: :post, tabindex: -1, class: 'finish-thing-link', remote: true do %>
     <span class='icon-check'></span>
   <% end %>
-  <%= link_to thing_path(thing), method: :delete, remote: true do %>
+  <span class='thing-description' data-thing-id=<%= thing.id %> contenteditable='true'><%= thing.description %></span>
+  <%= link_to thing_path(thing), method: :delete, tabindex: -1, class: 'delete-thing-link', remote: true do %>
     <span class='icon-close'></span>
   <% end %>
 </div>

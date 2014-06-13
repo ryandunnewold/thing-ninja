@@ -28,6 +28,5 @@ module Lists
       #{config.root}/lib/responders
       #{config.root}/vendor
     )
-
   end
 end
