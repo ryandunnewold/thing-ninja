@@ -12,4 +12,9 @@ gem 'simple_form'
 gem 'spring', group: :development
 gem 'sqlite3'
 gem 'uglifier', '>= 1.3.0'
+
+gem 'capistrano'
+gem 'capistrano-ext'
+gem 'capistrano-unicorn', :require => false
+gem 'rvm-capistrano'
 gem 'unicorn'
