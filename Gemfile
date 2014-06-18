@@ -18,3 +18,7 @@ gem 'capistrano-ext'
 gem 'capistrano-unicorn', :require => false
 gem 'rvm-capistrano'
 gem 'unicorn'
+group :production do
+  gem 'mysql2'
+end
+gem 'therubyracer', platforms: :ruby

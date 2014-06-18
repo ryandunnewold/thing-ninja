@@ -30,22 +30,24 @@ set :default_environment, {
 
 set :unicorn_pid, lambda { "/apps/#{application}/shared/pids/unicorn.pid" }
 
-namespace :db do
-  desc "Reset the DB"
-  task :reset, roles: [:db] do
-    run "cd #{current_path} && bundle exec rake db:reset RAILS_ENV=#{rails_env}"
-  end
-  desc "Drop and recreate the DB"
-  task :redo, roles: [:db] do
-    run "cd #{current_path}; bundle exec rake db:drop db:create RAILS_ENV=#{rails_env}"
-  end
-  desc "Load the seed data into the database"
-  task :seed, roles: [:db] do
-    run "cd #{current_path} && bundle exec rake db:seed RAILS_ENV=#{rails_env}"
-  end
-  desc "Create the DB"
-  task :create, roles: [:db] do
-    run "cd #{current_path} && bundle exec rake db:create RAILS_ENV=#{rails_env}"
+namespace :metova do
+  namespace :db do
+    desc "Reset the DB"
+    task :reset, roles: [:db] do
+      run "cd #{current_path} && bundle exec rake db:reset RAILS_ENV=#{rails_env}"
+    end
+    desc "Drop and recreate the DB"
+    task :redo, roles: [:db] do
+      run "cd #{current_path}; bundle exec rake db:drop db:create RAILS_ENV=#{rails_env}"
+    end
+    desc "Load the seed data into the database"
+    task :seed, roles: [:db] do
+      run "cd #{current_path} && bundle exec rake db:seed RAILS_ENV=#{rails_env}"
+    end
+    desc "Create the DB"
+    task :create, roles: [:db] do
+      run "cd #{current_path} && bundle exec rake db:create RAILS_ENV=#{rails_env}"
+    end
   end
 end
 
