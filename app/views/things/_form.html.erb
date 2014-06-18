@@ -1,0 +1,4 @@
+<%= simple_form_for Thing.new, remote: true do |f| %>
+  <%= f.input_field :description %>
+  <%= f.submit 'Add', hidden: true %>
+<% end %>

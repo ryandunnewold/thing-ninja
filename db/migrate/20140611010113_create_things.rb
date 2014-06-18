@@ -3,7 +3,7 @@ class CreateThings < ActiveRecord::Migration
     create_table :things do |t|
       t.references :user, index: true    
       
-      t.datetime :finished
+      t.boolean :finished, default: false
       t.datetime :finished_at
       
       t.integer :priority
