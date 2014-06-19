@@ -11,7 +11,7 @@ set :rvm_ruby_string, 'ruby-2.1.2'
 
 # Setup source control
 set :scm, "git"
-set :repository, "git@bitbucket.org:rdunnewold/things.git"
+set :repository, "git@bitbucket.org:ryandunnewold/thing-ninja.git"
 
 set :deploy_via, :remote_cache
 
