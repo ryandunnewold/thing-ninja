@@ -1,4 +1,4 @@
-rails_env = ENV['RAILS_ENV'] || 'production'
+# rails_env = ENV['RAILS_ENV'] || 'production'
 appname = "things" #Rails.application.class.parent_name.downcase
 # Set your full path to application.
 app_path = "/apps/#{appname}/current"
