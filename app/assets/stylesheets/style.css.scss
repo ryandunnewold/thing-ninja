@@ -10,6 +10,7 @@ $other-color: rgb(149, 165, 166);
 
 $success-color: rgb(46, 204, 113);
 $failure-color: rgb(231, 76, 60);
+$neutral-color: rgb(52, 152, 219);
 
 // Mixins
 
@@ -142,11 +143,11 @@ nav {
         @include flex-justify(space-between);
         @include flex-align-items(center);
         padding: 10px 0;
-        .thing-description {
-          width: 700px;
+        .thing-description, .form-name {
+          width: 650px;
           outline: none;
         }
-        .finish-thing-link, .delete-thing-link {
+        .finish-thing-link, .delete-thing-link, .procrastinate-thing-link, .edit-form-link, .delete-form-link {
           @include flex-center;
           transition: color 100ms ease-in-out;
         }
@@ -155,7 +156,12 @@ nav {
             color: $success-color;
           }
         }
-        .delete-thing-link {
+        .procrastinate-thing-link {
+          &:hover {
+            color: $neutral-color;
+          }
+        }
+        .delete-thing-link, .delete-form-link {
           &:hover {
             color: $failure-color;
           }
@@ -164,7 +170,7 @@ nav {
           -webkit-animation: bounceOutLeft 600ms;
           animation: bounceOutLeft 600ms;
         }
-        &.deleted {
+        &.deleted, &.procrastinated {
           -webkit-animation: bounceOutRight 600ms;
           animation: bounceOutRight 600ms;
         }

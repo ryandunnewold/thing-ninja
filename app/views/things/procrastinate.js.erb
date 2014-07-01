@@ -1,0 +1,3 @@
+$('#thing-<%= @thing.id %>').addClass('procrastinated').on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+  $(this).remove();
+});

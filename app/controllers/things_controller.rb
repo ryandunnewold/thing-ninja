@@ -1,10 +1,10 @@
 class ThingsController < ApplicationController
   respond_to :html, :json
 
-  before_action :set_thing, only: %i(update destroy finish unfinish)
+  before_action :set_thing, only: %i(update destroy finish unfinish procrastinate)
 
   def index
-    @things = current_user.things.unfinished
+    @things = current_user.things.today
   end
 
   def create
@@ -27,6 +27,10 @@ class ThingsController < ApplicationController
     @thing.update(finished: false, finished_at: nil)
   end
 
+  def procrastinate
+    @thing.update(date: Date.today.tomorrow)
+  end
+
   private 
 
     def thing_params
@@ -36,4 +40,5 @@ class ThingsController < ApplicationController
     def set_thing
       @thing = Thing.find(params[:id])
     end
+
 end
