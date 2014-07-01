@@ -3,6 +3,9 @@
     <span class='icon-check'></span>
   <% end %>
   <span class='thing-description' data-thing-id=<%= thing.id %> contenteditable='true'><%= thing.description %></span>
+  <%= link_to procrastinate_thing_path(thing), method: :post, tabindex: -1, class: 'procrastinate-thing-link', remote: true do %>
+    <span class='icon-hourglass'></span>
+  <% end %>
   <%= link_to thing_path(thing), method: :delete, tabindex: -1, class: 'delete-thing-link', remote: true do %>
     <span class='icon-close'></span>
   <% end %>

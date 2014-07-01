@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
       post :finish
       post :unfinish
+      post :procrastinate
     end
   end
 end
