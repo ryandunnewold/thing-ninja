@@ -7,6 +7,10 @@ class Thing < ActiveRecord::Base
     where(finished: false).where('date < ?', Date.today.tomorrow)
   end
 
+  def self.procrastinated
+    where(finished: false).where('date > ?', Date.today)
+  end
+
   def self.unfinished
     where(finished: false)
   end

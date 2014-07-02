@@ -1,0 +1,11 @@
+<% content_for :nav_left do %>
+  <%= link_to things_path, tabindex: -1, class: 'text-link' do %>
+    Today
+  <% end %>
+<% end %>
+
+<div id='thing-wrapper'><% @things.each do |thing| %>
+  <%= render 'procrastinated_thing', thing: thing %>
+  <% end %>
+</div>
+<div id='new-thing' contenteditable="true"></div>

@@ -9,10 +9,13 @@
 </head>
 <body>
   <nav>
-    <%= link_to destroy_user_session_path, method: :delete, tabindex: -1, id: 'logout-link' do %>
-      <span class='icon-logout'></span>
-    <% end %>
-  </nav> 
+    <div id='nav-left'>
+      <%= yield :nav_left %>
+    </div>
+    <div id='nav-right'>
+      <%= yield :nav_right %>
+    </div>
+  </nav>
   <div id='wrapper'>
     <div id='container'>
       <%= yield %>
