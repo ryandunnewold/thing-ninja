@@ -77,13 +77,25 @@ nav {
   width: 100%;
   height: $nav-height;
   position: fixed;
-  #logout-link {
-    width: 50px;
-    height: 50px;
-    display: block;
-    text-decoration: none;
-    font-size: 22px;
-    @include flex-center;
+  @include flex;
+  @include flex-justify(space-between);
+  #nav-left, #nav-right{
+    .icon-link {
+      width: 50px;
+      height: 50px;
+      display: block;
+      text-decoration: none;
+      font-size: 22px;
+      @include flex-center;
+    }
+    .text-link {
+      height: 50px;
+      display: block;
+      text-decoration: none;
+      font-size: 22px;
+      padding: 0 12px;
+      @include flex-center;
+    }
   }
 }
 
@@ -166,11 +178,11 @@ nav {
             color: $failure-color;
           }
         }
-        &.finished {
+        &.slide-left {
           -webkit-animation: bounceOutLeft 600ms;
           animation: bounceOutLeft 600ms;
         }
-        &.deleted, &.procrastinated {
+        &.slide-right {
           -webkit-animation: bounceOutRight 600ms;
           animation: bounceOutRight 600ms;
         }

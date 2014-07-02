@@ -1,3 +1,3 @@
-$('#thing-<%= @thing.id %>').addClass('procrastinated').on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+$('#thing-<%= @thing.id %>').addClass('slide-right').on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
   $(this).remove();
 });

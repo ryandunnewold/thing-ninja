@@ -1,10 +1,14 @@
 class ThingsController < ApplicationController
   respond_to :html, :json
 
-  before_action :set_thing, only: %i(update destroy finish unfinish procrastinate)
+  before_action :set_thing, only: %i(update destroy finish unfinish procrastinate unprocrastinate)
 
   def index
     @things = current_user.things.today
+  end
+
+  def procrastinated
+    @things = current_user.things.procrastinated
   end
 
   def create
@@ -29,6 +33,10 @@ class ThingsController < ApplicationController
 
   def procrastinate
     @thing.update(date: Date.today.tomorrow)
+  end
+
+  def unprocrastinate
+    @thing.update(date: Date.today)
   end
 
   private 
