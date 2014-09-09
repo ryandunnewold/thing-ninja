@@ -1,10 +1,13 @@
 <div id='list-<%= list.id %>' class='item'>
   <div class='item-actions left'>
   </div>
-  <span class='item-content' data-list-id=<%= list.id %> contenteditable='true'><%= list.title %></span>
+  <span class='list-title item-content' data-list-id='<%= list.id %>' contenteditable='true'><%= list.title %></span>
   <div class='item-actions right'>
     <%= link_to list_things_path(list), tabindex: -1, class: 'open-thing-link item-action neutral' do %>
       <span class='icon-arrow-right'></span>
+    <% end %>
+    <%= link_to list_path(list), method: :delete, tabindex: -1, class: 'item-action negative', remote: true do %>
+      <span class='icon-close'></span>
     <% end %>
   </div>
 </div>

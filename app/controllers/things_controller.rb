@@ -1,7 +1,7 @@
 class ThingsController < ApplicationController
   respond_to :html, :json
 
-  before_action :set_list, only: :index
+  before_action :set_list, only: %i(index procrastinated create)
   before_action :set_thing, only: %i(update destroy finish unfinish procrastinate unprocrastinate)  
 
   def index
@@ -9,11 +9,11 @@ class ThingsController < ApplicationController
   end
 
   def procrastinated
-    @things = current_user.things.procrastinated
+    @procrastinated_things = @list.things.procrastinated
   end
 
   def create
-    @thing = current_user.things.create(thing_params)
+    @thing = @list.things.create(thing_params)
   end
 
   def update

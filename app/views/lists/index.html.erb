@@ -1,4 +1,13 @@
+<% content_for :nav_right do %>
+  <%= link_to destroy_user_session_path, method: :delete, tabindex: -1, class: 'text-link' do %>
+    Sign Out
+  <% end %>
+<% end %>
+
 <div class='item-wrapper'>
+  <h1> Lists </h1>
   <%= render @lists %>
+  <div class='item'>
+    <div id='new-list' class='item-create' data-placeholder='Add a list' contenteditable="true"></div>
+  </div>
 </div>
-<div class='item-create' contenteditable="true"></div>

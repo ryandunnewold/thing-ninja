@@ -1,11 +1,15 @@
 <% content_for :nav_left do %>
-  <%= link_to things_path, tabindex: -1, class: 'text-link' do %>
+  <%= link_to list_things_path(@list), tabindex: -1, class: 'text-link' do %>
     Today
   <% end %>
 <% end %>
 
-<div id='thing-wrapper'><% @things.each do |thing| %>
-  <%= render 'procrastinated_thing', thing: thing %>
+<div class='item-wrapper'>
+  <h1><%= @list.title %></h1>
+  <% @procrastinated_things.each do |thing| %>
+    <%= render 'procrastinated_thing', thing: thing %>
   <% end %>
+  <div class='item'>
+    <div id='new-thing' class='item-create' contenteditable="true"></div>
+  </div>
 </div>
-<div id='new-thing' contenteditable="true"></div>

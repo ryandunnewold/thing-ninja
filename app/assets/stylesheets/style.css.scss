@@ -190,6 +190,10 @@ nav {
     padding: $nav-height 0 100px 0;
     position: relative;
     .item-wrapper {
+      h1 {
+        text-align: center;
+        text-transform: uppercase;
+      }
       .item {
         @include flex;
         @include flex-justify(center);
@@ -207,7 +211,7 @@ nav {
           &:empty {
             &:before {
               color: #999;
-              content: 'Add a thing'
+              content: attr(data-placeholder);
             }
             &:focus {
               &:before {
@@ -304,29 +308,14 @@ nav {
       color: #fff;
       border: none;
       text-decoration: none;
-    }
-    .login-btn {
-      background: $primary-color;
-      border-bottom: 4px solid darken($primary-color, 10%);
+      border: 2px solid #222;
+      margin: 3px 0;
+      font-weight: 600;
+      background: transparent;
+      color: #222;
       &:hover {
-        background: darken($primary-color, 5%);
-        border-bottom: 4px solid darken($primary-color, 15%);
-      }
-    }
-    .register-btn {
-      background: $secondary-color;
-      border-bottom: 4px solid darken($secondary-color, 10%);
-      &:hover {
-        background: darken($secondary-color, 5%);
-        border-bottom: 4px solid darken($secondary-color, 15%);
-      }
-    }
-    .other-btn {
-      background: $other-color;
-      border-bottom: 4px solid darken($other-color, 10%);
-      &:hover {
-        background: darken($other-color, 5%);
-        border-bottom: 4px solid darken($other-color, 15%);
+        background: #222;
+        color: #fff;
       }
     }
   }

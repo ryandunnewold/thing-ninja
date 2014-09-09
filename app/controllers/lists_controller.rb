@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   respond_to :html, :json
 
-  before_action :set_list, only: %i(update destroy finish unfinish procrastinate unprocrastinate)
+  before_action :set_list, only: %i(update destroy)
 
   def index
     @lists = current_user.lists

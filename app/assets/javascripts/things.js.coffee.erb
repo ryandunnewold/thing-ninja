@@ -1,11 +1,12 @@
 $ ->
   $(".thing-description").blur ->
-    field = $(this).data('thing-id')
+    listID = $(this).data('list-id')
+    thingID = $(this).data('thing-id')
     value = $(this).text()
     $.ajax({
       method: 'put'
       data: { thing: { description: value }}
-      url: '<% Rails.application.routes.default_url_options[:host] %>/things/' + field
+      url: "<% Rails.application.routes.default_url_options[:host] %>/things/#{thingID}"
     })
 
   $(".thing-description").bind 'keydown', (e) ->
@@ -18,7 +19,7 @@ $ ->
       $.ajax({
         method: 'post'
         data: { thing: { description: element.text() }}
-        url: '<% Rails.application.routes.default_url_options[:host] %>/things'
+        url: "<% Rails.application.routes.default_url_options[:host] %>/lists/#{element.data('list-id')}/things"
       }).done ->
         element.text('')
 
@@ -29,6 +30,6 @@ $ ->
       $.ajax({
         method: 'post'
         data: { thing: { description: element.text() }}
-        url: '<% Rails.application.routes.default_url_options[:host] %>/things'
+        url: "<% Rails.application.routes.default_url_options[:host] %>/lists/#{element.data('list-id')}/things"
       }).done ->
         element.text('')

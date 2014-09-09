@@ -4,7 +4,17 @@ Rails.application.routes.draw do
   root 'lists#index'
 
   resources :lists do
-    resources :things
+    resources :things do
+      collection do
+        get :procrastinated
+      end
+      member do
+        post :finish
+        post :unfinish
+        post :procrastinate
+        post :unprocrastinate
+      end
+    end
   end
 
   resources :things do
