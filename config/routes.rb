@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   
-  root 'things#index'
+  root 'lists#index'
+
+  resources :lists do
+    resources :things
+  end
 
   resources :things do
     collection do

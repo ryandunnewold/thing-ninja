@@ -1,10 +1,11 @@
 class ThingsController < ApplicationController
   respond_to :html, :json
 
-  before_action :set_thing, only: %i(update destroy finish unfinish procrastinate unprocrastinate)
+  before_action :set_list, only: :index
+  before_action :set_thing, only: %i(update destroy finish unfinish procrastinate unprocrastinate)  
 
   def index
-    @things = current_user.things.today
+    @things = @list.things.today
   end
 
   def procrastinated
@@ -43,6 +44,10 @@ class ThingsController < ApplicationController
 
     def thing_params
       params.require(:thing).permit :description
+    end
+
+    def set_list
+      @list = List.find(params[:list_id])
     end
 
     def set_thing

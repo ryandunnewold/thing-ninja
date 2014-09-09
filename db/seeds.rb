@@ -1,5 +1,8 @@
 user = User.create(email: 'ryan.dunnewold@metova.com', username: 'stunnawold', password: 'password')
 
-10.times do
-  user.things.create(description: 'This is something I need to do')
+3.times do
+  list = user.lists.create(title: 'This is a list')
+  10.times do
+    list.things.create(description: 'This is something on this list')
+  end
 end

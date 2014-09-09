@@ -4,8 +4,9 @@
   <% end %>
 <% end %>
 
-<div id='thing-wrapper'><% @things.each do |thing| %>
-	<%= render 'thing', thing: thing %>
-  <% end %>
+<div class='item-wrapper'>
+	<%= render @things %>
+  <div class='item'>
+    <div id='new-thing' class='item-create' contenteditable="true"></div>
+  </div>
 </div>
-<div id='new-thing' contenteditable="true"></div>
