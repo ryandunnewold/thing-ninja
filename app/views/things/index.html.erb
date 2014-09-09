@@ -1,11 +1,19 @@
+<% content_for :nav_left do %>
+  <%= link_to lists_path, tabindex: -1, class: 'text-link' do %>
+    Back
+  <% end %>
+<% end %>
+
 <% content_for :nav_right do %>
-  <%= link_to procrastinated_things_path, tabindex: -1, class: 'text-link' do %>
+  <%= link_to procrastinated_list_things_path(@list), tabindex: -1, class: 'text-link' do %>
     Tomorrow
   <% end %>
 <% end %>
 
-<div id='thing-wrapper'><% @things.each do |thing| %>
-	<%= render 'thing', thing: thing %>
-  <% end %>
+<div class='item-wrapper'>
+  <h1><%= @list.title %></h1>
+	<%= render @things %>
+  <div class='item'>
+    <div id='new-thing' class='item-create' data-placeholder='Add a thing' data-list-id='<%= @list.id %>' contenteditable="true"></div>
+  </div>
 </div>
-<div id='new-thing' contenteditable="true"></div>

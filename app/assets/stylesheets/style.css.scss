@@ -9,7 +9,7 @@ $secondary-color: rgb(231, 76, 60);
 $other-color: rgb(149, 165, 166);
 
 $success-color: rgb(46, 204, 113);
-$failure-color: rgb(231, 76, 60);
+$negative-color: rgb(231, 76, 60);
 $neutral-color: rgb(52, 152, 219);
 
 // Mixins
@@ -189,33 +189,66 @@ nav {
     margin: 0 auto;
     padding: $nav-height 0 100px 0;
     position: relative;
-    #thing-wrapper {
-      .thing {
+    .item-wrapper {
+      h1 {
+        text-align: center;
+        text-transform: uppercase;
+      }
+      .item {
         @include flex;
-        @include flex-justify(space-between);
+        @include flex-justify(center);
         @include flex-align-items(center);
         padding: 10px 0;
-        .thing-description, .form-name {
-          width: 650px;
+        .item-content, .item-create {
+          width: 600px;
+          box-sizing: border-box;
+          padding: 0 10px;
           outline: none;
         }
-        .finish-thing-link, .delete-thing-link, .procrastinate-thing-link, .edit-form-link, .delete-form-link {
-          @include flex-center;
-          transition: color 100ms ease-in-out;
-        }
-        .finish-thing-link {
-          &:hover {
-            color: $success-color;
+        .item-create {
+          padding: 0 10px;
+          outline: none;
+          &:empty {
+            &:before {
+              color: #999;
+              content: attr(data-placeholder);
+            }
+            &:focus {
+              &:before {
+                content: ''   
+              }
+            }
           }
         }
-        .procrastinate-thing-link {
-          &:hover {
-            color: $neutral-color;
+        .item-actions {
+          width: 100px;
+          @include flex;
+          &.right {
+            @include flex-justify(flex-start);
           }
-        }
-        .delete-thing-link, .delete-form-link {
-          &:hover {
-            color: $failure-color;
+          &.left {
+            @include flex-justify(flex-end);
+          }
+          .item-action {
+            box-sizing: border-box;
+            padding: 0 10px;
+            @include flex-center;
+            transition: color 100ms ease-in-out;
+            &.positive {
+              &:hover {
+                color: $success-color;
+              }
+            }
+            &.neutral {
+              &:hover {
+                color: $neutral-color;
+              }
+            }
+            &.negative {
+              &:hover {
+                color: $negative-color;
+              }
+            }
           }
         }
         &.slide-left {
@@ -228,21 +261,9 @@ nav {
         }
       }
     }
-    #new-thing {
-      padding: 10px 0;
-      margin: 0 50px;
-      outline: none;
-      &:empty {
-        &:before {
-          color: #999;
-          content: 'Add a thing'
-        }
-        &:focus {
-          &:before {
-            content: ''   
-          }
-        }
-      }
+    .item-create {
+      padding: 10px;
+      width: 600px;
     }
   }
 }
@@ -287,29 +308,14 @@ nav {
       color: #fff;
       border: none;
       text-decoration: none;
-    }
-    .login-btn {
-      background: $primary-color;
-      border-bottom: 4px solid darken($primary-color, 10%);
+      border: 2px solid #222;
+      margin: 3px 0;
+      font-weight: 600;
+      background: transparent;
+      color: #222;
       &:hover {
-        background: darken($primary-color, 5%);
-        border-bottom: 4px solid darken($primary-color, 15%);
-      }
-    }
-    .register-btn {
-      background: $secondary-color;
-      border-bottom: 4px solid darken($secondary-color, 10%);
-      &:hover {
-        background: darken($secondary-color, 5%);
-        border-bottom: 4px solid darken($secondary-color, 15%);
-      }
-    }
-    .other-btn {
-      background: $other-color;
-      border-bottom: 4px solid darken($other-color, 10%);
-      &:hover {
-        background: darken($other-color, 5%);
-        border-bottom: 4px solid darken($other-color, 15%);
+        background: #222;
+        color: #fff;
       }
     }
   }

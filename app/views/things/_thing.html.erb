@@ -1,12 +1,16 @@
-<div id='thing-<%= thing.id %>' class='thing'>
-  <%= link_to finish_thing_path(thing), method: :post, tabindex: -1, class: 'finish-thing-link', remote: true do %>
-    <span class='icon-check'></span>
-  <% end %>
-  <span class='thing-description' data-thing-id=<%= thing.id %> contenteditable='true'><%= thing.description %></span>
-  <%= link_to procrastinate_thing_path(thing), method: :post, tabindex: -1, class: 'procrastinate-thing-link', remote: true do %>
-    <span class='icon-hourglass'></span>
-  <% end %>
-  <%= link_to thing_path(thing), method: :delete, tabindex: -1, class: 'delete-thing-link', remote: true do %>
-    <span class='icon-close'></span>
-  <% end %>
+<div id='thing-<%= thing.id %>' class='item'>
+  <div class='item-actions left'>
+    <%= link_to finish_list_thing_path(@list, thing), method: :post, tabindex: -1, class: 'finish-thing-link item-action positive', remote: true do %>
+      <span class='icon-check'></span>
+    <% end %>
+  </div>
+  <span class='thing-description item-content' data-thing-id=<%= thing.id %> contenteditable='true'><%= thing.description %></span>
+  <div class='item-actions right'>
+    <%= link_to procrastinate_list_thing_path(@list, thing), method: :post, tabindex: -1, class: 'procrastinate-thing-link item-action neutral', remote: true do %>
+      <span class='icon-hourglass'></span>
+    <% end %>
+    <%= link_to list_thing_path(@list, thing), method: :delete, tabindex: -1, class: 'delete-thing-link item-action negative', remote: true do %>
+      <span class='icon-close'></span>
+    <% end %>
+  </div>
 </div>

@@ -1,0 +1,34 @@
+$ ->
+  $(".list-title").blur ->
+    listID = $(this).data('list-id')
+    value = $(this).text()
+    $.ajax({
+      method: 'put'
+      data: { list: { title: value }}
+      url: "<% Rails.application.routes.default_url_options[:host] %>/lists/#{listID}"
+    })
+
+  $(".thing-description").bind 'keydown', (e) ->
+    if e.keyCode is 13
+      e.preventDefault()
+
+  $("#new-list").blur ->
+    element = $(this)
+    if $(this).text()
+      $.ajax({
+        method: 'post'
+        data: { list: { title: element.text() }}
+        url: "<% Rails.application.routes.default_url_options[:host] %>/lists"
+      }).done ->
+        element.text('')
+
+  $("#new-list").bind 'keydown', (e) ->
+    element = $(this)
+    if e.keyCode is 13
+      e.preventDefault()
+      $.ajax({
+        method: 'post'
+        data: { list: { title: element.text() }}
+        url: "<% Rails.application.routes.default_url_options[:host] %>/lists"
+      }).done ->
+        element.text('')
