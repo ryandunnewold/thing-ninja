@@ -5,15 +5,27 @@ class ThingsController < ApplicationController
   before_action :set_thing, only: %i(update destroy finish unfinish procrastinate unprocrastinate)  
 
   def index
-    @things = @list.things.today
+    if @list 
+      @things = @list.things.today
+    else
+      @things = current_user.things.today
+    end
   end
 
   def procrastinated
-    @procrastinated_things = @list.things.procrastinated
+    if @list 
+      @procrastinated_things = @list.things.procrastinated
+    else
+      @procrastinated_things = current_user.things.procrastinated
+    end
   end
 
   def create
-    @thing = @list.things.create(thing_params)
+    if @list
+      @thing = @list.things.create(thing_params)
+    else
+      @thing = current_user.things.create(thing_params)
+    end
   end
 
   def update
@@ -47,7 +59,7 @@ class ThingsController < ApplicationController
     end
 
     def set_list
-      @list = List.find(params[:list_id])
+      @list = List.find(params[:list_id]) if params[:list_id]
     end
 
     def set_thing
