@@ -1,5 +1,13 @@
 // Variables
 
+// Colors
+
+$red: rgb(231, 76, 60);
+$orange: rgb(230, 126, 34);
+$yellow: rgb(241, 196, 15);
+$blue: rgb(52, 152, 219);
+$green: rgb(46, 204, 113);
+
 $nav-height: 50px;
 
 $primary-font: 'Source Sans Pro', sans-serif;
@@ -8,9 +16,13 @@ $primary-color: rgb(52, 152, 219);
 $secondary-color: rgb(231, 76, 60);
 $other-color: rgb(149, 165, 166);
 
-$success-color: rgb(46, 204, 113);
-$negative-color: rgb(231, 76, 60);
-$neutral-color: rgb(52, 152, 219);
+$success-color: $green;
+$negative-color: $red;
+$neutral-color: $blue;
+
+$low-color: $green;
+$medium-color: $yellow;
+$high-color: $red;
 
 // Mixins
 
@@ -204,6 +216,25 @@ nav {
           box-sizing: border-box;
           padding: 0 10px;
           outline: none;
+          .list-title {
+            outline: none;
+          }
+          .thing-count {
+            opacity: .5;
+            transition: opacity 100ms ease-out;
+            &.low{
+              color: $low-color;
+            }
+            &.medium{
+              color: $medium-color;
+            }
+            &.high{
+              color: $high-color;
+            }
+            &:hover {
+              opacity: 1;
+            }
+          }
         }
         .item-create {
           padding: 0 10px;
