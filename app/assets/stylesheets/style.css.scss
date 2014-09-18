@@ -206,6 +206,10 @@ nav {
         text-align: center;
         text-transform: uppercase;
       }
+      h4 {
+        text-align: center;
+        font-weight: 300;
+      }
       .item {
         @include flex;
         @include flex-justify(center);

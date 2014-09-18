@@ -8,6 +8,7 @@ end
 
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
+gem 'humanize'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'oj'

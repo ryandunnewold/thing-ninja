@@ -9,4 +9,12 @@ module ApplicationHelper
         'high'
     end 
   end
+
+  def finished_today_string(size)
+    if size == 1
+      "#{size.humanize} thing completed today"
+    else
+      "#{size.humanize} things completed today"
+    end
+  end
 end

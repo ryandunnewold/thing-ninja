@@ -19,6 +19,10 @@ class Thing < ActiveRecord::Base
     where(finished: true)
   end
 
+  def self.finished_today
+    where(finished: true).where('finished_at > ? AND finished_at < ?', Date.today, Date.today.tomorrow)
+  end
+
   def set_when
     self.update(date: Date.today)
   end
