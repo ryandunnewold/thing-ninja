@@ -7,8 +7,10 @@ class ThingsController < ApplicationController
   def index
     if @list 
       @things = @list.things.today
+      @procrastinated_size = @list.things.procrastinated.size
     else
       @things = current_user.things.today
+      @procrastinated_size = current_user.things.procrastinated.size
     end
   end
 

@@ -1,17 +1,17 @@
 <% content_for :nav_left do %>
   <%= link_to lists_path, tabindex: -1, class: 'text-link' do %>
-    Back
+    Back to Lists
   <% end %>
 <% end %>
 
 <% content_for :nav_right do %>
   <% if @list %>
     <%= link_to procrastinated_list_things_path(@list), tabindex: -1, class: 'text-link' do %>
-      Tomorrow
+      Tomorrow [<%= @procrastinated_size %>]
     <% end %>
   <% else %>
     <%= link_to procrastinated_things_path(@list), tabindex: -1, class: 'text-link' do %>
-      Tomorrow
+      Tomorrow [<%= @procrastinated_size %>]
     <% end %>
   <% end %>
 <% end %>
