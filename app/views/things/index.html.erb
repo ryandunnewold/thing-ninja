@@ -4,6 +4,18 @@
   <% end %>
 <% end %>
 
+<% content_for :nav_right do %>
+  <% if @list %>
+    <%= link_to procrastinated_list_things_path(@list), tabindex: -1, class: 'text-link' do %>
+      Tomorrow
+    <% end %>
+  <% else %>
+    <%= link_to procrastinated_things_path(@list), tabindex: -1, class: 'text-link' do %>
+      Tomorrow
+    <% end %>
+  <% end %>
+<% end %>
+
 <div class='item-wrapper'>
   <h1><%= @list ? @list.title : "All The Things" %></h1>
 	<%= render @things %>

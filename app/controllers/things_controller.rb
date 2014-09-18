@@ -6,9 +6,9 @@ class ThingsController < ApplicationController
 
   def index
     if @list 
-      @things = @list.things.unfinished
+      @things = @list.things.today
     else
-      @things = current_user.things.unfinished
+      @things = current_user.things.today
     end
   end
 
