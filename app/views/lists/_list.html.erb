@@ -5,7 +5,7 @@
     <span class='list-title' data-list-id='<%= list.id %>' contenteditable='true'><%= list.title %></span>
     <% if list.things.unfinished.any? %>
       <%= link_to list_things_path(list), class: "thing-count #{thing_count_class(list.things.unfinished.size)}" do %> 
-        <%= "[#{list.things.unfinished.size}]" %>
+        <%= "[#{list.things.today.size}]" %>
       <% end %>
     <% end %>
   </span>
