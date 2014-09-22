@@ -215,6 +215,9 @@ nav {
         @include flex-justify(center);
         @include flex-align-items(center);
         padding: 10px 0;
+        &.blur {
+          opacity: .05;
+        }
         .item-content, .item-create {
           width: 600px;
           box-sizing: border-box;
@@ -270,6 +273,7 @@ nav {
             padding: 0 10px;
             @include flex-center;
             transition: color 100ms ease-in-out;
+            cursor: pointer;
             &.positive {
               &:hover {
                 color: $success-color;
