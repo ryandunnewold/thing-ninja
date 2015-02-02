@@ -19,7 +19,11 @@ $ ->
       $.ajax({
         method: 'post'
         data: { thing: { description: element.text() }}
-        url: "<% Rails.application.routes.default_url_options[:host] %>/lists/#{element.data('list-id')}/things"
+        url: 
+          if element.data('list-id')
+            '<% Rails.application.routes.default_url_options[:host] %>/lists/' + element.data('list-id') + '/things'
+          else
+            '<% Rails.application.routes.default_url_options[:host] %>/things'
       }).done ->
         element.text('')
 
@@ -30,6 +34,10 @@ $ ->
       $.ajax({
         method: 'post'
         data: { thing: { description: element.text() }}
-        url: "<% Rails.application.routes.default_url_options[:host] %>/lists/#{element.data('list-id')}/things"
+        url: 
+          if element.data('list-id')
+            '<% Rails.application.routes.default_url_options[:host] %>/lists/' + element.data('list-id') + '/things'
+          else
+            '<% Rails.application.routes.default_url_options[:host] %>/things'
       }).done ->
         element.text('')

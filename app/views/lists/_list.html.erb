@@ -1,7 +1,14 @@
 <div id='list-<%= list.id %>' class='item'>
   <div class='item-actions left'>
   </div>
-  <span class='list-title item-content' data-list-id='<%= list.id %>' contenteditable='true'><%= list.title %></span>
+  <span class='item-content'>
+    <span class='list-title' data-list-id='<%= list.id %>' contenteditable='true'><%= list.title %></span>
+    <% if list.things.today.any? %>
+      <%= link_to list_things_path(list), class: "thing-count" do %> 
+        <%= "[#{list.things.today.size}]" %>
+      <% end %>
+    <% end %>
+  </span>
   <div class='item-actions right'>
     <%= link_to list_things_path(list), tabindex: -1, class: 'open-thing-link item-action neutral' do %>
       <span class='icon-arrow-right'></span>
