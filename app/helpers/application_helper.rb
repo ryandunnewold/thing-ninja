@@ -12,9 +12,9 @@ module ApplicationHelper
 
   def finished_today_string(size)
     if size == 1
-      "#{size.humanize} thing completed today"
+      "#{number_to_human(size)} thing completed today"
     else
-      "#{size.humanize} things completed today"
+      "#{number_to_human(size)} things completed today"
     end
   end
 end
