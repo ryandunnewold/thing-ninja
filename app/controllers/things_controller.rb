@@ -8,6 +8,11 @@ class ThingsController < ApplicationController
     @things = @list.things.today
   end
 
+  def all_the_things
+    @things = Thing.all
+    
+  end
+
   def procrastinated
     @procrastinated_things = @list.things.procrastinated
   end
