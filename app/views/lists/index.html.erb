@@ -7,27 +7,8 @@
 <div class='item-wrapper'>
   <h1> Lists </h1>
   <h4 class='things-finished-today'> <%= finished_today_string(current_user.things.finished_today.size) %> </h4>
-  <div class='item'>
-    <div class='item-actions left'>
-    </div>
-    <span class='item-content'>
-      <span class='list-title'>All The Things</span>
-      <% if Thing.all.any? %>
-        <%= link_to all_the_things_things_path, class: "thing-count" do %> 
-          <%= "[#{Thing.all.size}]" %>
-        <% end %>
-      <% end %>
-    </span>
-    <div class='item-actions right'>
-      <%= link_to all_the_things_things_path, tabindex: -1, class: 'open-thing-link item-action neutral' do %>
-        <span class='icon-arrow-right'></span>
-      <% end %>
-    </div>
-  </div>
   <%= render @lists %>
-  <div class='item'>
-    <div class='item-content-wrapper'>
-      <div id='new-list' class='item-create' data-placeholder='Add a list' contenteditable="true"></div>
-    </div>
+  <div class='item list'>
+    <div id='new-list' class='item-create' data-placeholder='Add a new list' contenteditable="true"></div>
   </div>
 </div>

@@ -1,10 +1,7 @@
 <div id='thing-<%= thing.id %>' class='item'>
   <div class='item-actions left'>
-    <%= link_to finish_list_thing_path(@list, thing), method: :post, tabindex: -1, class: 'finish-thing-link item-action positive', remote: true do %>
-      <span class='icon-check'></span>
-    <% end %>
     <%= link_to unprocrastinate_list_thing_path(@list, thing), method: :post, tabindex: -1, class: 'procrastinate-thing-link item-action neutral', remote: true do %>
-      <span class='icon-clock'></span>
+      <span class='icon-arrow-left'></span>
     <% end %>
   </div>
   <span class='thing-description item-content' data-thing-id=<%= thing.id %> contenteditable='true'><%= thing.description %></span>

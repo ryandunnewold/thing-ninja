@@ -1,20 +1,15 @@
-<div id='list-<%= list.id %>' class='item'>
+<div id='list-<%= list.id %>' class='item list'>
   <div class='item-actions left'>
   </div>
   <span class='item-content'>
-    <span class='list-title' data-list-id='<%= list.id %>' contenteditable='true'><%= list.title %></span>
-    <% if list.things.today.any? %>
-      <%= link_to list_things_path(list), class: "thing-count" do %> 
-        <%= "[#{list.things.today.size}]" %>
-      <% end %>
+    <%= link_to list_things_path(list), class: 'list-link' do %>
+      <span class='list-title'><%= list.title %></span>
+      <%= "[#{list.things.today.size}]" if list.things.today.any? %>
     <% end %>
   </span>
   <div class='item-actions right'>
-    <%= link_to list_things_path(list), tabindex: -1, class: 'open-thing-link item-action neutral' do %>
+    <%= link_to list_things_path(list), class: 'list-link item-action neutral' do %>
       <span class='icon-arrow-right'></span>
-    <% end %>
-    <%= link_to list_path(list), method: :delete, tabindex: -1, class: 'item-action negative', remote: true do %>
-      <span class='icon-close'></span>
     <% end %>
   </div>
 </div>
