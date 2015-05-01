@@ -1,3 +1,5 @@
 $('#thing-<%= @thing.id %>').addClass('slide-right').on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
   $(this).remove();
 });
+
+$('#procrastinated-number').text(parseInt($('#procrastinated-number').text()) + 1);

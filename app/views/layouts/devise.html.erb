@@ -4,18 +4,21 @@
   <title>Things</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav>
-    <% if current_user %>
-      <%= link_to 'logout', destroy_user_session_path, method: :delete %>
-    <% end %>
-  </nav>
   <div id='login-wrapper'>
     <div id='login-container'>
-      <h1>The Thing Ninja</h1>
-      <%= yield %>
+      <div id='info-container'>
+        <h1>thing.ninja*</h1>
+        <h3>a to-do list app to help you do things</h3>
+        <h4>*must be a ninja to use</h4>
+      </div>
+      <div id='form-container'>
+        <%= yield %>
+      </div>
   </div>
 </body>
 </html>

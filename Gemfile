@@ -4,6 +4,7 @@ gem 'rails', '4.1.1'
 
 group :development do
   gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 gem 'coffee-rails', '~> 4.0.0'

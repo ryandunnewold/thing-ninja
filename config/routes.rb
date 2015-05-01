@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :things do
     collection do
       get :procrastinated
+      get :all_the_things
     end
     member do
       post :finish

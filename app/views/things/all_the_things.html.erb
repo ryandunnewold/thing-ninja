@@ -1,0 +1,26 @@
+<% content_for :nav_left do %>
+  <%= link_to lists_path, tabindex: -1, class: 'text-link' do %>
+    Back to Lists
+  <% end %>
+<% end %>
+
+<% content_for :nav_right do %>
+  <% if @list %>
+    <%= link_to procrastinated_list_things_path(@list), tabindex: -1, class: 'text-link' do %>
+      Tomorrow [<%= @procrastinated_size %>]
+    <% end %>
+  <% else %>
+    <%= link_to procrastinated_things_path(@list), tabindex: -1, class: 'text-link' do %>
+      Tomorrow [<%= @procrastinated_size %>]
+    <% end %>
+  <% end %>
+<% end %>
+
+<div class='item-wrapper'>
+  <h1><%= @list ? @list.title : "All The Things" %></h1>
+  <h4 class='things-finished-today'><%= finished_today_string(@things.finished_today.size) %></h4>
+  <%= render @things %>
+  <div class='item'>
+    <div id='new-thing' class='item-create' data-placeholder='Add a thing' <%= "data-list-id=#{@list.id}" if @list %> contenteditable="true"></div>
+  </div>
+</div>

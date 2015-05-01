@@ -1,6 +1,6 @@
 <% content_for :nav_left do %>
   <%= link_to list_things_path(@list), tabindex: -1, class: 'text-link' do %>
-    Today
+    Back to Today
   <% end %>
 <% end %>
 
@@ -10,6 +10,6 @@
     <%= render 'procrastinated_thing', thing: thing %>
   <% end %>
   <div class='item'>
-    <div id='new-thing' class='item-create' contenteditable="true"></div>
+    <div id='new-thing' class='item-create' data-list-id=<%= @list.id %> data-procrastinated='true' data-placeholder='Add a procrastinated thing' contenteditable="true"></div>
   </div>
 </div>
