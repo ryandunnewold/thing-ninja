@@ -15,29 +15,29 @@ $ ->
 
   $("#new-thing").blur ->
     element = $(this)
+    date = new Date()
+    if element.data('procrastinated') == true
+      date.setDate(date.getDate() + 1)
     if $(this).text()
       $.ajax({
         method: 'post'
-        data: { thing: { description: element.text() }}
+        data: { thing: { description: element.text(), date: date }}
         url: 
-          if element.data('list-id')
-            '<% Rails.application.routes.default_url_options[:host] %>/lists/' + element.data('list-id') + '/things'
-          else
-            '<% Rails.application.routes.default_url_options[:host] %>/things'
+          '<% Rails.application.routes.default_url_options[:host] %>/lists/' + element.data('list-id') + '/things'
       }).done ->
         element.text('')
 
   $("#new-thing").bind 'keydown', (e) ->
     element = $(this)
+    date = new Date()
+    if element.data('procrastinated') == true
+      date.setDate(date.getDate() + 1)
     if e.keyCode is 13
       e.preventDefault()
       $.ajax({
         method: 'post'
-        data: { thing: { description: element.text() }}
-        url: 
-          if element.data('list-id')
-            '<% Rails.application.routes.default_url_options[:host] %>/lists/' + element.data('list-id') + '/things'
-          else
-            '<% Rails.application.routes.default_url_options[:host] %>/things'
+        data: { thing: { description: element.text(), date: date }}
+        url:
+          '<% Rails.application.routes.default_url_options[:host] %>/lists/' + element.data('list-id') + '/things'
       }).done ->
         element.text('')

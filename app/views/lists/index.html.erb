@@ -8,9 +8,7 @@
   <h1> Lists </h1>
   <h4 class='things-finished-today'> <%= finished_today_string(current_user.things.finished_today.size) %> </h4>
   <%= render @lists %>
-  <div class='item'>
-    <div class='item-content-wrapper'>
-      <div id='new-list' class='item-create' data-placeholder='Add a list' contenteditable="true"></div>
-    </div>
+  <div class='item list'>
+    <div id='new-list' class='item-create' data-placeholder='Add a new list' contenteditable="true"></div>
   </div>
 </div>

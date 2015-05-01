@@ -5,14 +5,8 @@
 <% end %>
 
 <% content_for :nav_right do %>
-  <% if @list %>
-    <%= link_to procrastinated_list_things_path(@list), tabindex: -1, class: 'text-link' do %>
-      Tomorrow [<%= @procrastinated_size %>]
-    <% end %>
-  <% else %>
-    <%= link_to procrastinated_things_path(@list), tabindex: -1, class: 'text-link' do %>
-      Tomorrow [<%= @procrastinated_size %>]
-    <% end %>
+  <%= link_to procrastinated_list_things_path(@list), tabindex: -1, class: 'text-link' do %>
+    Tomorrow [<%= content_tag :span, @procrastinated_size, id: 'procrastinated-number' %>]
   <% end %>
 <% end %>
 
@@ -20,7 +14,7 @@
   <h1><%= @list ? @list.title : "All The Things" %></h1>
   <h4 class='things-finished-today'><%= finished_today_string(@list.things.finished_today.size) %></h4>
 	<%= render @things %>
-  <div class='item'>
-    <div id='new-thing' class='item-create' data-placeholder='Add a thing' <%= "data-list-id=#{@list.id}" if @list %> contenteditable="true"></div>
+  <div class='item thing'>
+    <div id='new-thing' class='item-create' data-placeholder='Add a thing' data-list-id=<%= @list.id %> contenteditable="true"></div>
   </div>
 </div>

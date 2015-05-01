@@ -1,0 +1,41 @@
+// Mixins
+
+@mixin flex-center {
+  @include flex;
+  @include flex-justify(center);
+  @include flex-align-items(center);
+}
+
+@mixin flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex-align-items($position) {
+  -webkit-box-align: $position; 
+  -moz-box-align: $position;
+  -ms-flex-align: $position;
+  -webkit-align-items: $position;
+  align-items: $position;  
+}
+
+@mixin flex-align($position) {
+  -webkit-align-content: $position;  
+  align-content: $position;  
+}
+
+@mixin flex-justify($position) {
+  -webkit-box-pack: $position;
+  -moz-box-pack: $position;
+  -ms-flex-pack: $position;
+  -webkit-justify-content: $position;
+  justify-content: $position;
+}
+
+@mixin flex-flow($flow){
+  -webkit-flex-flow: $flow;
+  flex-flow: $flow;
+}
