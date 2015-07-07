@@ -11,7 +11,7 @@ html, body {
   font-family: $primary-font;
   color: #222;
   font-weight: 300;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 a, a:focus, a:visited, a:link, a:hover {
@@ -25,7 +25,7 @@ nav {
   height: $nav-height;
   position: fixed;
   z-index: 999;
-  background: $neutral-color;
+  background: #222;
   #nav-container {
     width: 100%;
     @include flex;
@@ -39,7 +39,7 @@ nav {
         height: 50px;
         display: block;
         text-decoration: none;
-        font-size: 22px;
+        font-size: 1.2rem;
         color: #fff;
         @include flex-center;
       }
@@ -47,7 +47,7 @@ nav {
         height: 50px;
         display: block;
         text-decoration: none;
-        font-size: 22px;
+        font-size: 1.2rem;
         padding: 0 12px;
         color: #fff;
         @include flex-center;
@@ -71,9 +71,26 @@ nav {
       h1 {
         text-align: center;
         text-transform: uppercase;
+        font-size: 2.6rem;
+        margin-bottom: .5rem;
+      }
+      .delete-list-link-wrapper {
+        text-align: center;
+        @include flex-center;
+        .delete-list-link {
+          display: block;
+          font-size: 1rem;
+          text-align: center;
+          padding: .1rem;
+          transition: color 50ms ease-in-out;
+          &:hover {
+            color: $red;
+          }
+        }
       }
       h4 {
         text-align: center;
+        font-size: 1.4rem;
         font-weight: 300;
       }
       .item {
@@ -81,6 +98,7 @@ nav {
         @include flex-justify(center);
         @include flex-align-items(center);
         padding: 10px 0;
+        font-size: 1.4rem;
         &.blur {
           opacity: .05;
         }
@@ -192,17 +210,17 @@ nav {
       width: 100%;
       text-align: center;
       h1 {
-        font-size: 72px;
+        font-size: 4rem;
         margin: 20px 0;
         font-weight: 900;
       }
       h3 {
-        font-size: 36px;
+        font-size: 2rem;
         margin: 10px 0;
         font-weight: 400;
       }
       h4 {
-        font-size: 18px;
+        font-size: 1rem;
         font-style: italic;
         margin: 10px 0 40px;
       }
@@ -217,7 +235,7 @@ nav {
         background: #fff;
         outline: none;
         border: 2px solid #222;
-        font-size: 18px;
+        font-size: 1rem;
         font-family: $primary-font;
         font-weight: 300;
         margin: 4px auto;
@@ -234,7 +252,7 @@ nav {
         width: 100%;
         padding: 10px;
         box-sizing: border-box;
-        font-size: 20px;
+        font-size: 1.2rem;
         font-family: $primary-font;
         outline: none;
         color: #fff;
@@ -301,13 +319,13 @@ nav {
     #login-container {
       #info-container {
         h1 {
-          font-size: 48px;
+          font-size: 3rem;
         }
         h3 {
-          font-size: 24px;
+          font-size: 1.5rem;
         }
         h4 {
-          font-size: 16px;
+          font-size: 1rem;
         }
       }
     }
