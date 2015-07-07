@@ -11,7 +11,10 @@
 <% end %>
 
 <div class='item-wrapper'>
-  <h1><%= @list ? @list.title : "All The Things" %></h1>
+  <h1><%= @list.title %></h1>
+  <div class='delete-list-link-wrapper'>
+    <%= link_to 'remove list', list_path(@list), class: 'delete-list-link', method: :delete %>
+  </div>
   <h4 class='things-finished-today'><%= finished_today_string(@list.things.finished_today.size) %></h4>
 	<%= render @things %>
   <div class='item thing'>
