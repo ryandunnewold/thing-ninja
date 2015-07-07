@@ -25,7 +25,7 @@ nav {
   height: $nav-height;
   position: fixed;
   z-index: 999;
-  background: #222;
+  background: $blue;
   #nav-container {
     width: 100%;
     @include flex;
@@ -96,7 +96,7 @@ nav {
       .item {
         @include flex;
         @include flex-justify(center);
-        @include flex-align-items(center);
+        @include flex-align(center);
         padding: 10px 0;
         font-size: 1.4rem;
         &.blur {
