@@ -24,12 +24,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'unf' 
 gem 'yarjuf'
 
-gem 'capistrano'
-gem 'capistrano-ext'
-gem 'capistrano-unicorn', :require => false
-gem 'rvm-capistrano'
-gem 'unicorn'
-
 group :production do
   gem 'mysql2'
 
