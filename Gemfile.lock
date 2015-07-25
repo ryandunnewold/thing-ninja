@@ -96,6 +96,7 @@ GEM
     oj (2.5.1)
     orm_adapter (0.5.0)
     polyglot (0.3.5)
+    puma (2.12.2)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -199,6 +200,7 @@ DEPENDENCIES
   jquery-rails
   mysql2
   oj
+  puma
   rails (= 4.1.1)
   rvm-capistrano
   sass-rails (~> 4.0.1)
