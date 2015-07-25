@@ -76,6 +76,7 @@ GEM
     mysql2 (0.3.15)
     oj (2.5.1)
     orm_adapter (0.5.0)
+    pg (0.18.2)
     polyglot (0.3.5)
     puma (2.12.2)
     rack (1.5.2)
@@ -176,6 +177,7 @@ DEPENDENCIES
   jquery-rails
   mysql2
   oj
+  pg
   puma
   rails (= 4.1.1)
   rails_12factor
