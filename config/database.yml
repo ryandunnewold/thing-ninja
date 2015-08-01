@@ -4,32 +4,17 @@ development:
   pool: 5
   timeout: 5000
 
-integration:
-  adapter: sqlite3
-  database: db/development.sqlite3
-  pool: 5
-  timeout: 5000
-
 test:
   adapter: sqlite3
   database: db/test.sqlite3
   pool: 5
   timeout: 5000
 
-staging:
-  adapter: mysql2
-  encoding: utf8
-  database: staging
-  pool: 5
-  username: apps
-  password: schfifty5
-  host: localhost
-
 production:
-  adapter: mysql2
+  adapter: pg
   encoding: utf8
-  database: production
+  database: deh7r3fh181i83
   pool: 5
-  username: apps
-  password: schfifty5
-  host: localhost
+  username: nkoukzzxopvxco
+  password: vyMxv2Fm0eI4L-jBGpv9_rzq-D
+  host: ec2-54-83-55-214.compute-1.amazonaws.com
