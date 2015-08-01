@@ -27,8 +27,4 @@ gem 'uglifier', '>= 1.3.0'
 gem 'unf' 
 gem 'yarjuf'
 
-group :production do
-  gem 'rails_12factor'
-end
-
 gem 'therubyracer', platforms: :ruby
