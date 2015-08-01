@@ -18,7 +18,6 @@ gem 'jquery-rails'
 gem 'oj'
 gem 'pg'
 gem 'puma'
-gem 'rails_12factor'
 gem 'sass-rails', '~> 4.0.1'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
@@ -29,8 +28,7 @@ gem 'unf'
 gem 'yarjuf'
 
 group :production do
-  gem 'mysql2'
-
+  gem 'rails_12factor'
 end
 
 gem 'therubyracer', platforms: :ruby
