@@ -16,7 +16,7 @@ gem 'humanize'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'oj'
-gem 'pg'
+gem 'pg', group: :production
 gem 'puma'
 gem 'sass-rails', '~> 4.0.1'
 gem 'sdoc', '~> 0.4.0', group: :doc
